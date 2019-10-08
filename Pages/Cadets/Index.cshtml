@@ -1,0 +1,78 @@
+﻿@page
+@model CCFTracker.Pages.Cadets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadet[0].Rank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadet[0].Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadet[0].KnownAs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadet[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadet[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadet[0].Form)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadet[0].Platoon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadet[0].Section)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cadet) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KnownAs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Form)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Platoon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Section)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
